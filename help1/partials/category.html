@@ -1,0 +1,10 @@
+<a href="/help1" ui-sref="help1" class="o-btn link-back">Home</a>
+
+<h1>Category:: {{ title }}</h1>
+
+ <!--List of Articles -->
+<ul>
+    <li data-ng-repeat="article in articles">
+        <a data-ui-sref="article({id: article.id, title: article.urlTitle})" href="" class="c-help-page__article-link">{{article.title}}</a>
+    </li>
+</ul>

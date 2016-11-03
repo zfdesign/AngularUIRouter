@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <base href="/help1/">
+    <title>AngularJS - UI router</title>
+    <link href='https://fonts.googleapis.com/css?family=Hind+Vadodara:300,500|Ubuntu:400,500' rel='stylesheet' type='text/css'>
+    <link href="//help.just-eat.co.uk/bundles/helpCss_rebrand?v=JN41GEJ7AaRD_Bt4BewBQXdtGhQ4JknLmBv-OH1cqOA1" rel="stylesheet"/>
+    <link href="//help.just-eat.co.uk/bundles/ukCss_rebrand?v=xOJ2wI5SFBasOuHi78myY-C3-_34phx9LoCBZL7y3bo1" rel="stylesheet"/>
+  </head>
+
+  <body>
+
+    <div ng-app="help">
+
+      <a href="/">HOME</a>
+      <!--HelpController-->
+      <div>
+
+        <div class="c-help-page__page-heading l-container">
+          <div class="l-row">
+            <div class="l-col l-col--xs-4 l-col--md-8 l-col--lg-12 l-col--center">
+              <h1>Welcome. How can we help?</h1>
+            </div>
+          </div>
+        </div>
+
+        <!-- SEARCH -->
+        <!-- SearchController -->
+        <div>
+          <form class="c-help-page__article-search-form o-form" method="post" action="/help/search/">
+          <!--data-ng-class="{hasValue: searchTerm.length > 0}" data-ng-submit="$event.preventDefault();search()"
+              data-ng-show="routeState !== 'article'">-->
+
+            <div class="o-form__field-group">
+                <label>Search the help centre</label>
+                <input type="hidden" name="language" data-ng-model="language" value=""/>
+                <input type="search" name="searchTerm" id="searchTerm" tabindex="1" placeholder="Pop your question in here"
+                        aria-label="Search the help centre"
+                        data-ft="search-box-input" autocomplete="off"/>
+                        <!--data-ng-model="searchTerm" data-ng-change="search()" data-ng-debounce="300"
+                        data-ng-focus="setFocus(true)" data-ng-blur="setFocus(false)"-->
+
+                <button class="o-btn o-btn--primary" data-ng-cloak aria-label="Search" aria-hidden="true">Search</button>
+            </div>
+          </form>
+        </div>
+        <!-- END: SEARCH -->
+
+        <!-- Featured Articles -->
+        <!-- CategoriesController -->
+        <div class="c-help-page__articles">
+
+            <div class="l-container">
+                <div class="l-row">
+                    <div class="l-col l-col--xs-4 l-col--md-8 l-col--lg-12 l-col--center">
+                        <ul class="c-help-page__article--links">
+                                <li>
+                                    <a ui-sref="article/{203097941}/{how-do-i-know-if-my-order-has-been-confirmed}" class="article--link icon_order" href="/help/article/203097941/how-do-i-know-if-my-order-has-been-confirmed" data-ft="popular-question-link">
+                                        How do I know if my order has been confirmed?
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="article--link icon_rejected" href="/help/article/203065512/my-order-has-been-rejected-what-can-i-do" data-ft="popular-question-link">
+                                        My order has been rejected. What can I do?
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="article--link icon_late" href="/help/article/203065242/my-food-is-late-what-should-i-do" data-ft="popular-question-link">
+                                        My food is late, what should I do?
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="article--link icon_delivery" href="/help/article/203065272/my-order-is-here-but-it-s-not-right-what-should-i-do" data-ft="popular-question-link">
+                                        My order is here, but it’s not right. What should I do?
+                                    </a>
+                                </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END: Featured Articles -->
+
+        <a ui-sref="help.otheQuestions">Got another question?</a>
+        <div ui-view></div>
+      </div>
+
+
+    </div>
+
+    <script src="/node_modules/angular/angular.js" data-require="angular.js@1.5.x" data-semver="1.5.8"></script>
+    <script src="/node_modules/angular-ui-router/release/angular-ui-router.min.js" data-require="angular-ui-router@0.3.1" data-semver="0.3.1"></script>
+    <script src="/help1/app.js"></script>
+    <script src="/help/HelpController.js"></script>
+    <script src="/help1/search/SearchController.js"></script>
+    <script src="/help1/category/CategoryController.js"></script>
+    <script src="/help1/article/ArticleController.js"></script>
+    <script src="/help1/services/services.js"></script>
+  </body>
+</html>

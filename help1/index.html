@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <base href="/help1/">
+    <title>AngularJS - UI router</title>
+    <!--<link rel="stylesheet" href="style.css" />-->
+  </head>
+
+  <body>
+
+    <div ng-app="app">
+        <!-- Add some navigation: -->
+        <a href="/">HOME</a> 
+        <a ui-sref="help1">Help</a> 
+        <a ui-sref="category({ 'id': 1, urlTitle: 'category-1' })">Category 1</a> 
+        <a ui-sref="article({ 'id': 1, urlTitle: 'article-1' })">Article</a> 
+        <hr />
+        
+        <div ui-view></div>
+        <noscript>
+          <h1>Welcome. How can we help?</h1>
+
+          <!--Seach -->
+          <div class="c-help-page__article-search-container">
+              <form action="/help1/search" method="post">
+                  <label>
+                      <span>Search the help centre</span><br>
+                      <input type="search" name="question" placeholder="Pop your question here">
+                  </label>
+              </form>
+          </div>
+
+          <!--Popular Articles -->
+          <div class="c-help-page__popular-articles">
+              <ul class="c-help-page__popular-articles--links">
+                  <li data-ng-repeat="article in popularArticles">
+                      <a data-ui-sref="article({id: article.id, urlTitle: article.urlTitle })">{{ article.title }}</a>
+                  </li>
+              </ul>
+          </div>
+
+          <a ui-sref="help1.other-questions" data-ng-hide="">Got an other question?</a>
+          <hr/>
+        </noscript>
+    </div>
+
+    <script src="/node_modules/angular/angular.min.js" data-require="angular.js@1.5.x" data-semver="1.5.8"></script>
+    <script src="/node_modules/angular-ui-router/release/angular-ui-router.min.js" data-require="angular-ui-router@0.3.1" data-semver="0.3.1"></script>
+    <script src="/help1/app.js"></script>
+
+    <!--<script src="help/HelpController.js"></script>
+    <script src="help/other-questions/OtherQuestionsController.js"></script>
+    <script src="help/category/CategoryController.js"></script>
+    <script src="help/article/ArticleController.js"></script>
+    <script src="help/Services/services.js"></script>-->
+
+  </body>
+</html>

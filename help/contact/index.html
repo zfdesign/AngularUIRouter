@@ -1,0 +1,48 @@
+<div class="c-help-page__contact" ng-controller="ContactController">
+
+	<div class="l-container">
+		<div class="l-row">
+			<div class="l-col l-col--xs-4 l-col--md-8 l-col--lg-12 l-col--center">
+				<h2 id="helpFAQInnerTitle">Still need help? Get in touch...</h2>
+				<div id="helpContactText">
+					<p>We&#39;ve got a team of eager beavers ready to chat with you right now. Just hit the chat button to get started.</p>
+					<p>Alternatively, you can email our help team or you can call our customer care team right away to hear a human voice.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="l-row">
+			<div class="c-help-page__contact--links l-col l-col--xs-4 l-col--md-8 l-col--lg-12 l-col--center" id="helpContactButtons">
+				<div class="helpFAQ">
+					<a href="https://v2.zopim.com/widget/livechat.html?key=28k7RD5y2ZMTiDHkuM1z0948xhWxSvd9" target="_blank" id="helpContactChatButton" class="openFAQs o-btn o-btn--primary"
+					   ng-class="{'is-disabled': !webChatButtonEnabled}" 
+					   ng-disabled="{{!webChatButtonEnabled}}"
+					   ng-bind="chatButtonText" 
+					   data-gtm="help|click - contact _chat|{{selectedContactMethod=='chat' ? 'open' : 'closed'}}" 
+					   data-chat-open-text="Chat now" 
+					   data-chat-closed-text="Chat closed">
+						Chat now
+					</a>
+				</div>
+				<div ng-class="{preOrderButton: chatButtonEnabled, helpFAQ: !chatButtonEnabled}">
+					<a href="/help/contact/email.html" id="helpContactEmailButton" class="o-btn o-btn--primary"
+                        ui-sref="contact.email"
+					    ng-class="{'o-btn--secondary' : webChatButtonEnabled}" ng-click="setContactMethod('email');$event.preventDefault();"
+						data-gtm="help|click - contact_email|{{selectedContactMethod=='email' ? 'open' : 'closed'}}">
+						Email our happy helpers
+					</a>
+				</div>
+				<div class="preOrderButton">
+					<a href="/help/contact/phone.html" id="helpContactPhoneButton" class="o-btn o-btn--secondary"
+                        ui-sref="contact.phone"
+                        ng-click="setContactMethod('phone');$event.preventDefault();" 
+                        data-gtm="help|click - contact_phone|{{selectedContactMethod=='phone' ? 'open' : 'closed'}}">
+						I&#39;d rather call
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<div ui-view></div>
+</div>

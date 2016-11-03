@@ -1,0 +1,24 @@
+<h1>Welcome. How can we help?</h1>
+
+ <!-- Seach -->
+ <div class="c-help-page__article-search-container">
+    <form action="/help1/search" method="post">
+        <label>
+            <span>Search the help centre</span><br>
+            <input type="search" name="question" placeholder="Pop your question here">
+        </label>
+    </form>
+</div>
+
+ <!-- Popular Articles -->
+ <div class="c-help-page__popular-articles">
+     <ul class="c-help-page__popular-articles--links">
+        <li data-ng-repeat="article in popularArticles">
+             <a data-ui-sref="article({id: article.id, urlTitle: article.urlTitle })">{{ article.title }}</a>
+        </li>
+     </ul>
+ </div>
+
+
+<a ui-sref="other-questions" ng-hide="!hideFaqLink">Got an other question?</a>
+<hr/>

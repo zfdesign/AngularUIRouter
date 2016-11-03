@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <base href="/help2/">
+    <title>AngularJS - UI router</title>
+    <!--<link rel="stylesheet" href="style.css" />-->
+  </head>
+
+  <body>
+
+    <div ng-app="app">
+        <!-- Add some navigation: -->
+        <nav>
+            <a href="/">HOME</a> 
+            <a ui-sref="help2">Home</a> 
+            <a ui-sref="other-questions">Other questions</a> 
+            <a ui-sref="category({ 'id': 1, urlTitle: 'section-1' })">Category 1</a> 
+            <a ui-sref="article({ 'id': 3, urlTitle: 'article-3' })">Article 3</a>
+        </nav> 
+        <hr />
+        
+        <div ui-view="home"></div>
+        <div ui-view="faq"></div>
+        <div ui-view="category"></div>
+        <div ui-view="atricle"></div>
+        <div ui-view="contact"></div>
+
+    </div>
+
+    <script src="/node_modules/angular/angular.min.js" data-require="angular.js@1.5.x" data-semver="1.5.8"></script>
+    <script src="/node_modules/angular-ui-router/release/angular-ui-router.min.js" data-require="angular-ui-router@0.3.1" data-semver="0.3.1"></script>
+    <script src="/help2/app.js"></script>
+
+    <!--<script src="help/HelpController.js"></script>
+    <script src="help/other-questions/OtherQuestionsController.js"></script>
+    <script src="help/category/CategoryController.js"></script>
+    <script src="help/article/ArticleController.js"></script>
+    <script src="help/Services/services.js"></script>-->
+
+  </body>
+</html>

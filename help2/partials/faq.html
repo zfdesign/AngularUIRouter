@@ -1,0 +1,6 @@
+<h3>What's your question about</h3>
+<div class="help-page__categories-links-list">
+    <div data-ng-repeat="cat in categories">
+        <a ui-sref="category({ id: cat.id, urlTitle: cat.urlTitle })">{{cat.title}}</a>
+    </div>
+</div>

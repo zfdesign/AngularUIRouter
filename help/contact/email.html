@@ -1,0 +1,92 @@
+<div class="c-help-page__contact--email l-container" id="emailDetails">
+	<div class="l-row">
+		<div class="l-col l-col--xs-4 l-col--md-8 l-col--lg-12 l-col--center">
+			<h2>Email</h2>
+			<p>Give us some details and we will get back to you.</p>
+		</div>
+	</div>
+
+	<div class="l-row">
+		<div class="l-col l-col--xs-4 l-col--md-8 l-col--lg-12 l-col--center">
+			
+		    <form class="o-form" name="helpContactEmailForm" id="helpContactEmailForm" method="POST" action="/help/contact" 
+                  data-ng-submit="$event.preventDefault();sendEmail();" novalidate="novalidate">
+
+		        <div class="o-form__field-group formMessage formError js-only" ng-cloak>
+                    <span class="o-form__field-error">
+                        An issue occured while submitting your request. Please try again.
+                    </span>
+				</div>
+
+		        <div class="o-form__field-group formMessage formSuccess js-only" id="formSuccess" ng-cloak>
+		            Your request has been submitted successfully.
+		        </div>
+
+
+		        <div ng-cloak>
+					<div class="o-form__field-group helpContactEntry">
+						<label for="CustomerEmailAddress">Email address</label>
+					    <input type="email" name="CustomerEmailAddress" id="CustomerEmailAddress" class="form-control inputField"					           
+					           required="required" placeholder="e.g. msmith@mail.com">
+							   <!--ng-model="CustomerEmailAddress"-->
+
+					    <div ng-show="helpContactEmailForm.CustomerEmailAddress.$error.email && formSubmitted" ng-cloak>
+					        <span class="o-form__field-error">
+                                The email address you have entered is not valid.
+                            </span>
+					    </div>
+                        <div ng-show="helpContactEmailForm.CustomerEmailAddress.$error.required && formSubmitted" ng-cloak>
+                            <span class="o-form__field-error">
+                                Please enter an email address so we know how to respond to you.
+                            </span>
+                        </div>
+					</div>
+
+
+		            <div class="o-form__field-group helpContactEntry">
+						<label for="CustomerOrderNumber">Order number (optional)</label>
+					    <input type="number" id="CustomerOrderNumber" name="CustomerOrderNumber" class="form-control inputField"                                
+                               placeholder="e.g. 12345678">
+							   <!--ng-model="CustomerOrderNumber" -->
+					</div>
+
+
+		            <div class="o-form__field-group helpContactEntry">
+		                <label for="CustomerReasonForContact">Reason for contact</label>
+		                <input type="text" id="CustomerReasonForContact" name="CustomerReasonForContact" class="form-control inputField"
+		                       required="required" 
+                               placeholder="e.g. &quot;Cannot access my account&quot;">
+							   <!--ng-model="CustomerReasonForContact"-->
+
+		                <div ng-show="helpContactEmailForm.CustomerReasonForContact.$error.required && formSubmitted" ng-cloak>
+		                    <span class="o-form__field-error">
+                                Please let us know the reason for contacting us.
+                            </span>
+		                </div>
+		            </div>
+
+
+		            <div class="o-form__field-group helpContactEntry">
+						<label for="CustomerHelpText">How can we help</label>
+		                <textarea id="CustomerHelpText" name="CustomerHelpText" class="form-control inputField large"
+		                          required="required"></textarea>
+								  <!--ng-model="CustomerHelpText"-->
+
+                        <div ng-show="helpContactEmailForm.CustomerHelpText.$error.required && formSubmitted" ng-cloak>
+                            <span class="o-form__field-error">
+                                Please let us know how we can help you.
+                            </span>
+                        </div>
+		            </div>
+
+
+		            <div class="o-form__field-group helpContactEntry sendEmailButton">
+						<button class="openFAQs o-btn o-btn--primary" ng-click="$event.preventDefault();sendEmail()" ng-disabled="isBusy">
+							Send email
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>	
